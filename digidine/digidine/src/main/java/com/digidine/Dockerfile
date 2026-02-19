@@ -17,4 +17,4 @@ RUN mvn clean package -DskipTests
 EXPOSE 10000
 
 # Run the jar
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "target/digidine-0.0.1-SNAPSHOT.jar"]
