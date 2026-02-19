@@ -1,5 +1,5 @@
-# Use official Java image
-FROM eclipse-temurin:17-jdk
+# Use Maven + Java 17 image
+FROM maven:3.9.9-eclipse-temurin-17
 
 # Set working directory
 WORKDIR /app
@@ -7,11 +7,12 @@ WORKDIR /app
 # Copy project files
 COPY . .
 
-# Build the application
-RUN ./mvnw clean package -DskipTests
+# Build the Spring Boot application
+RUN mvn clean package -DskipTests
 
-# Expose port
+# Expose port (Render internal port)
 EXPOSE 10000
 
-# Run the jar
-CMD ["java", "-jar", "target/digidine-0.0.1-SNAPSHOT.jar"]
+# Run the generated JAR
+CMD ["java", "-jar", "target/*.jar"]
+
