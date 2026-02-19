@@ -4,15 +4,17 @@ FROM maven:3.9.9-eclipse-temurin-17
 # Set working directory
 WORKDIR /app
 
-# Copy project files
+# Copy everything
 COPY . .
 
-# Build the Spring Boot application
+# Move into the actual Spring Boot project folder
+WORKDIR /app/digidine
+
+# Build the Spring Boot app
 RUN mvn clean package -DskipTests
 
-# Expose port (Render internal port)
+# Expose port
 EXPOSE 10000
 
-# Run the generated JAR
+# Run the jar
 CMD ["java", "-jar", "target/*.jar"]
-
