@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://digidine-phi.vercel.app")
 public class DishController {
 
     private final DishRepository dishRepo;
